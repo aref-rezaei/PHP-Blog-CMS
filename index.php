@@ -19,14 +19,30 @@
             <div class="clear"></div>
         </div><!-- end container -->
 
+        <div class="HeaderImage"><!-- start HeaderImage -->
+            <img src="https://picsum.photos/1500/470" alt="">
+            <form action="">
+                <div class="search">
+                    <input type="text" class="inputSearch" placeholder="جستجو">
+                    <button class="searchBtn">جستجو</button>
+                    <div class="clear"></div>
+                </div>
+            </form>
+        </div><!-- end HeaderImage -->
+
+
     </div><!-- end header -->
     <div class="clear"></div>
-    <div class="body"><!-- start footer -->
-    
+    <div class="body"><!-- start body -->
+        <div class="container">
+
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
     </div><!-- end body -->
 
     <div class="footer"><!-- start footer -->
-    
+        <p>blog.php</p>
     </div><!-- end footer-->
 </body>
 </html>
