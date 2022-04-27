@@ -48,8 +48,8 @@
 
 .body{
     width: 100%;
-    height: 600px;
-    background: indigo;
+    height: auto;
+    
 }
 
 .footer{
@@ -70,7 +70,9 @@
     width: 100%;
     height: 470px;
     float: right;
-    position: relative
+    position: relative;
+    margin-bottom: 15px;
+    
 }
 
 .HeaderImage img{
@@ -117,4 +119,68 @@
     top: 0;
     left: 0;
 
+}
+
+.post{
+    width: 24%;
+    height: auto;
+    background: #fff;
+    float: right;
+    box-shadow: 0 0 3px #ccc;
+    overflow: hidden;
+    margin: 0 0 10px 10px;
+    border-radius: 2px;
+}
+
+.postHeader{
+    background: #f8f8f8;
+    padding: 12px 10px;
+}
+
+.postHeader .postTitle{
+    float: right;
+}
+
+.postHeader span{
+    float: left;
+}
+
+.postBody{
+    padding: 5px;
+}
+
+.postImage{
+    width: 100%;
+    height: 240px;
+    margin-bottom: 15px;
+
+}
+
+.postImage img{
+    width: 100%;
+    height: 100%;
+}
+
+.postDesc{
+    text-align: justify;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.postFooter{
+    background: #f8f8f8;
+    padding: 10px 12px;
+}
+
+.postFooter span{
+    float: right;
+}
+
+.postFooter a{
+    float: left;
+    color: #4d4d4d;
+}
+
+.postFooter a:hover{
+    color: blue;
 }
