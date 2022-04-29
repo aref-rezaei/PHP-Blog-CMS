@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>وبلاگ من</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
                 <li><a href="#">صفحه اصلی</a></li>
                 <li><a href="#">برنامه نویسی</a></li>
                 <li><a href="#">گرافیک</a></li>
-                <li><a href="#">ورود مدیریت</a></li>
+                <li><a href="admin">ورود مدیریت</a></li>
             </ul>
             <div class="clear"></div>
         </div><!-- end container -->
@@ -35,7 +36,7 @@
     <div class="clear"></div>
     <div class="body"><!-- start body -->
         <div class="container">
-            
+
             <div class="post"><!-- start post -->
                 <div class="postHeader"><!-- start postHeader -->
                     <h1 class="postTitle">اولین مطلب</h1>
