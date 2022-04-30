@@ -195,9 +195,9 @@
 }
 
 .content{
-    float: left;
+    float: right;
     height: 700px;
-    width: 82.5px;
+    width: 82.5%;
     padding: 50px;
 }
 
@@ -266,3 +266,94 @@
 .accordion ul ul{
     display: none;
 }
+
+.btn{
+    color: #fff;
+    font-size: 17px;
+    padding: 7px 22px;
+    margin: 10px 0;
+    border-radius: 2px;
+    box-shadow: 0 0 3px #ccc;
+}
+
+.btn:hover{
+    box-shadow: 0 0 13px #ccc;
+    transition: all 500ms ease;
+}
+
+.btn-success{
+    background: #5cb85c;
+}
+
+.btn-warning{
+    background: #f0ad4e;
+}
+
+.btn-error{
+    background: #f66482;
+}
+
+.btn-info{
+    background: #45a9ff;
+}
+
+.alert{
+    padding: 12px 20px;
+    margin: 5px 0;
+    font-size: 17px;
+}
+
+.alert-error{
+    color: #d8000c;
+    background-color: #ffd2d2;
+    
+}
+
+ .alert-success{
+     color:#4f8a10;
+     background-color: #dff2bf;
+     
+ }
+
+ .alert-warning{
+     color: #9f6000;
+     background-color: #feefb3;
+ }
+
+ .alert-info{
+     color: #00529b;
+     background-color: #bde5f8;
+ }
+
+ .textbox{
+     height: 38px;
+     width: 80%;
+     border: 1px solid #ccc;
+     font-size: 18px;
+     margin-bottom: 5px;
+     border-radius: 2px;
+     padding: 0 12px;
+ }
+
+ table{
+     text-align: center;
+     width: 100%;
+ }
+
+ table thead{
+     background: #eee;
+     
+ }
+
+ table th{
+     padding: 15px 0;
+ }
+
+ table td{
+     padding: 15px 3px;
+ }
+
+ table tr:nth-child(odd){
+     background: #eee;
+ }
+
