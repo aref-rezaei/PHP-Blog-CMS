@@ -4,7 +4,7 @@
             <li><a href="./">داشبورد</a></li>
             <li class="has-sub"><a href="">مدیریت دسته بندی</a>
                 <ul>
-                    <li><a href="./">افزودن دسته‌ها</a></li>
+                    <li><a href="./Categories.php">افزودن دسته‌ها</a></li>
                 </ul>
             </li>
 

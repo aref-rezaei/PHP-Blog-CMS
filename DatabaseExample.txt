@@ -1,0 +1,40 @@
+Use queries below to create database(MySql) tables
+database name = php_blog
+
+CREATE TABLE `php_blog`.`admins` ( 
+    `admin_id` INT NOT NULL AUTO_INCREMENT ,
+    `admin_username` VARCHAR(255) NOT NULL ,
+    `admin_password` VARCHAR(32) NOT NULL ,
+     PRIMARY KEY (`admin_id`))
+     ENGINE = InnoDB;
+
+CREATE TABLE `php_blog`.`categories` (
+     `category_id` INT NOT NULL AUTO_INCREMENT ,
+     `category_title` VARCHAR(255) NOT NULL ,
+      PRIMARY KEY (`category_id`))
+        ENGINE = InnoDB;
+
+CREATE TABLE `php_blog`.`posts` (
+     `post_id` INT NOT NULL AUTO_INCREMENT ,
+     `post_category_id` VARCHAR(255) NOT NULL ,
+     `post_title` VARCHAR(255) NOT NULL ,
+     `post_author` VARCHAR(255) NOT NULL ,
+     `post_create_at` DATE NOT NULL ,
+     `post_img` TEXT NOT NULL ,
+     `post_body` TEXT NOT NULL ,
+     `post_tags` VARCHAR(255) NOT NULL ,
+      PRIMARY KEY (`post_id`))
+      ENGINE = InnoDB;
+
+CREATE TABLE `php_blog`.`comments` (
+     `comment_id` INT NOT NULL AUTO_INCREMENT ,
+     `comment_post_id` INT(11) NOT NULL ,
+     `comment_author` VARCHAR(255) NOT NULL ,
+     `comment_body` TEXT NOT NULL ,
+     `comment_status` TINYINT(2) NOT NULL ,
+     `comment_email` TEXT NOT NULL ,
+     `comment_create_at` DATE NOT NULL ,
+     `comment_reply` INT(11) NOT NULL ,
+      PRIMARY KEY (`comment_id`))
+      ENGINE = InnoDB;
+

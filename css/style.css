@@ -357,3 +357,20 @@
      background: #eee;
  }
 
+ .delete{
+     color: #fff;
+     padding: 5px 5px;
+     width: 60px;
+     background: #f66482;
+     text-align: center;
+     display: inline-block;
+ }
+
+ .edit{
+    color: #fff;
+    padding: 5px 5px;
+    width: 60px;
+    background: #efba1a;
+    text-align: center;
+    display: inline-block;
+ }
