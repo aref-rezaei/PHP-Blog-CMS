@@ -1,3 +1,4 @@
+<?php require_once 'includes/init.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +13,12 @@
     <div class="header"><!-- start header -->
         <div class="container"><!-- start container -->
             <ul class="menu">
-                <li><a href="#">صفحه اصلی</a></li>
-                <li><a href="#">برنامه نویسی</a></li>
-                <li><a href="#">گرافیک</a></li>
+                <?php 
+                    $showCategory = selectCategory();
+                    foreach ($showCategory as $value) {
+                        echo "<li><a href='#'>{$value['category_title']}</a></li>";
+                    }
+                ?>
                 <li><a href="admin">ورود مدیریت</a></li>
             </ul>
             <div class="clear"></div>
