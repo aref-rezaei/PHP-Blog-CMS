@@ -10,8 +10,8 @@
 
             <li class="has-sub"><a href="">مدیریت  مطلب</a>
                 <ul>
-                    <li><a href="./">مشاهده مطلب</a></li>
-                    <li><a href="./">افزودن مطلب</a></li>
+                    <li><a href="Posts.php">مشاهده مطلب</a></li>
+                    <li><a href="addPosts.php">افزودن مطلب</a></li>
                 </ul>
             </li>
 

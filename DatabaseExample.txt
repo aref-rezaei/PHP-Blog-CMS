@@ -19,7 +19,7 @@ CREATE TABLE `php_blog`.`posts` (
      `post_category_id` VARCHAR(255) NOT NULL ,
      `post_title` VARCHAR(255) NOT NULL ,
      `post_author` VARCHAR(255) NOT NULL ,
-     `post_create_at` DATE NOT NULL ,
+     `post_created_at` DATE NOT NULL ,
      `post_img` TEXT NOT NULL ,
      `post_body` TEXT NOT NULL ,
      `post_tags` VARCHAR(255) NOT NULL ,
