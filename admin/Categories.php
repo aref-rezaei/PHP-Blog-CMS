@@ -9,10 +9,9 @@
          addCategory();
          if (isset($_GET['delete'])) {
              $deleteCategory = deleteCategory($_GET['delete']);
-             var_dump($deleteCategory);
+             
              if($deleteCategory){
                  header('location:Categories.php?success=ok');
-                 die();
              } else {
                 header('location:Categories.php?error=ok');
              }
@@ -43,7 +42,7 @@
                     <th>عملیات</th>
                 </tr>
             </thead>
-            <?php $selectCategory = selectCategory();
+            <?php $selectCategory = selectAllCategory();
                   if($selectCategory){
                       foreach($selectCategory as $index => $value){
             ?> 

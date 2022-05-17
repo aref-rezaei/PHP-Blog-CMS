@@ -6,7 +6,7 @@
         <?php require_once 'pages/sidebar.php'  ?>
 
         <?php   
-            $CategoryForEdit = selectCategoryForFetch($_GET['edit']);
+            $CategoryForEdit = selectCategory($_GET['edit']);
             if(isset($_GET['edit']) && isset($_POST['category_id'])){
                 $updateCategory = updateCategory($_POST['category_id']);
 

@@ -11,22 +11,22 @@
 
         <div class="content"><!-- start content -->
             <form action="" method="post" enctype="multipart/form-data">
-                <input type="text" class="textbox" name="post_title" placeholder="عنوان مطلب">
-                <select name="post_category_id"  class="textbox">
+                <input type="text" class="textbox" name="post_title" placeholder="عنوان مطلب" required>
+                <select name="post_category_id"  class="textbox" required>
                     <?php 
-                        $selectCategory = selectCategory();
+                        $selectCategory = selectAllCategory();
                         foreach($selectCategory as $valueCategory){
                             echo "<option value='{$valueCategory['category_id']}'>{$valueCategory['category_title']}</option>";
                         }
                     ?>
 
                 </select>
-                <input type="text" name="post_author" class="textbox" placeholder="نویسنده مطلب">
+                <input type="text" name="post_author" class="textbox" placeholder="نویسنده مطلب" required>
 
-                <input type="file" name="post_img" class="textbox">
+                <input type="file" name="post_img" class="textbox" required>
                 
-                <textarea class="textbox" name="post_body"style="height:230px; padding:15px;" placeholder="توضیحات مطلب"></textarea>
-                <input type="text" name="post_tags" class="textbox" placeholder="برچسب‌ها">
+                <textarea class="textbox" name="post_body"style="height:230px; padding:15px;" placeholder="توضیحات مطلب" required></textarea>
+                <input type="text" name="post_tags" class="textbox" placeholder="برچسب‌ها" required>
                 <br>
                 <input type="submit" class="btn btn-success" name="addPost" value="درج مطلب">
                 <input type="reset" class="btn btn-error" value="انصراف">

@@ -14,7 +14,7 @@
         <div class="container"><!-- start container -->
             <ul class="menu">
                 <?php 
-                    $showCategory = selectCategory();
+                    $showCategory = selectAllCategory();
                     foreach ($showCategory as $value) {
                         echo "<li><a href='#'>{$value['category_title']}</a></li>";
                     }
