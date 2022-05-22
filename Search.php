@@ -26,7 +26,7 @@
 
         <div class="HeaderImage"><!-- start HeaderImage -->
             <img src="https://picsum.photos/1500/470" alt="">
-            <form action="Search.php" method="post">
+            <form action="" method="post">
                 <div class="search">
                     <input type="text" name="search" class="inputSearch" placeholder="جستجو">
                     <button class="searchBtn">جستجو</button>
@@ -41,9 +41,11 @@
     <div class="body"><!-- start body -->
         <div class="container">
             <?php
-                $Posts = selectAllPost();
-                foreach($Posts as $post){
-
+                if(isset($_POST['search'])){
+                    $searchResult = searchPost($_POST['search']);
+                }
+                if($searchResult) {   
+                foreach($searchResult as $post){
                 
             ?>
             <div class="post"><!-- start post -->
@@ -68,7 +70,13 @@
                 </div><!-- end postFooter -->
                 <div class="clear"></div>
             </div><!-- end post -->
-            <?php } ?>
+            <?php 
+              }//end for searchResult
+             } else{
+                echo '<p class="text">موردی یافت نشد</p>';
+             }
+            
+            ?>
 
             <div class="clear"></div>
         </div>

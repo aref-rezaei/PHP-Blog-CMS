@@ -317,3 +317,19 @@ function updatePost($post_id){
 
     }
 }
+
+function searchPost($value){
+
+    global $con;
+    
+    $sql = "SELECT * FROM `posts` WHERE `post_tags` LIKE ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bindValue(1,"%$value%");
+    $stmt->execute();
+
+    if($stmt->rowCount() >= 1){
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    } else {
+        return false;
+    }
+}
