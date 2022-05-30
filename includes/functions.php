@@ -333,3 +333,22 @@ function searchPost($value){
         return false;
     }
 }
+
+function showSinglePost($post_id){
+    
+    global $con;
+
+    if(isset($post_id)){
+        $sql ="SELECT * FROM `posts` WHERE `post_id`=?";
+        $stmt = $con->prepare($sql);
+        $stmt -> bindvalue(1,$post_id);
+        $stmt ->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+
+    }
+}
+
+function textSummary($value){
+
+    return mb_substr($value, 0, 100, 'utf-8').' ...';
+}

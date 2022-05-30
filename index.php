@@ -48,7 +48,7 @@
             ?>
             <div class="post"><!-- start post -->
                 <div class="postHeader"><!-- start postHeader -->
-                    <h1 class="postTitle"><?= $post->post_title ?></h1>
+                    <h1 class="postTitle"><a href="PostPage.php?post_id=<?= $post->post_id ?>"><?= $post->post_title ?></a></h1>
                     <span>تاریخ انتشار:<?= convertDateToJalali($post->post_created_at) ?></span>
                     <div class="clear"></div>
                 </div><!-- end postHeader -->
@@ -57,13 +57,13 @@
                         <img src="images/<?= $post->post_img?>" alt="">
                     </div><!-- end postImage -->
                     <div class="postDesc"><!-- start postDesc -->
-                        <p><?= $post->post_body?></p>
+                        <p><?= textSummary($post->post_body);?></p>
                     </div><!-- end postDesc -->
                     <div class="clear"></div>
                 </div><!-- end postBody -->
                 <div class="postFooter"><!-- start postFooter -->
                     <span>نویسنده مطلب: <?= $post->post_author?></span>
-                    <a href="" class="readMore">ادامه مطلب</a>
+                    <a href="PostPage.php?post_id=<?= $post->post_id ?>" class="readMore">ادامه مطلب</a>
                     <div class="clear"></div>
                 </div><!-- end postFooter -->
                 <div class="clear"></div>
