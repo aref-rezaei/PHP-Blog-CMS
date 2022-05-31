@@ -352,3 +352,16 @@ function textSummary($value){
 
     return mb_substr($value, 0, 100, 'utf-8').' ...';
 }
+
+function selectCategoryByPost($category_id){
+
+    global $con;
+    if(isset($category_id)){
+        $sql = 'SELECT * FROM `posts` WHERE `post_category_id`=?';
+        $stmt = $con ->prepare($sql);
+        $stmt -> bindValue(1,$category_id);
+        $stmt -> execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+
+    }
+}
