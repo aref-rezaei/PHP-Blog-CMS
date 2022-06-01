@@ -71,8 +71,28 @@
             <?php } ?>
 
             <div class="clear"></div>
+
+            <div class="pagination">
+                <?php 
+                    for($i=1; $i <= $TotalPageNum; $i++){
+                        if(isset($_GET['page'])){
+                            if($i == $_GET['page']){
+                                echo'<a class="paginationNum active" href="index.php?page='.$i.'">'.$i.'</a>';
+                            } else {
+                                echo'<a class="paginationNum" href="index.php?page='.$i.'">'.$i.'</a>';
+                            }
+                        }else{
+                            echo'<a class="paginationNum active" href="index.php?page=1">1</a>';
+                        }
+
+                    }
+                ?>
+
+                <div class="clear"></div>
+            </div>
         </div>
         <div class="clear"></div>
+
     </div><!-- end body -->
 
     <div class="footer"><!-- start footer -->

@@ -64,6 +64,15 @@
                 </div><!-- end postBody -->
                 <div class="postFooter"><!-- start postFooter -->
                     <span>نویسنده مطلب: <?= $post->post_author?></span>
+                    
+                    <div style="float: left ;">
+                    <?php
+                        $tags = explode(',',$post->post_tags);
+                        foreach ($tags as $tag){
+                            echo"<span class='tags'>$tag</span>";
+                        }
+                    ?>
+                    </div>
                     <div class="clear"></div>
                 </div><!-- end postFooter -->
                 <div class="clear"></div>

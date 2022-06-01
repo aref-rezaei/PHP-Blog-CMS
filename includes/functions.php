@@ -159,8 +159,20 @@ function addPost(){
 function selectAllPost(){
    
     global $con;
+    global $TotalPageNum;
     
+    if(!isset($_GET['page'])){
+        $offset = 0;
+    } else {
+        $offset = ($_GET['page']-1)*4;
+    }
+
     $sql = "SELECT * FROM `posts`";
+    $stmt = $con->prepare($sql);
+    $stmt -> execute();
+    $TotalPageNum = ceil($stmt->rowCount()/4);
+
+    $sql = "SELECT * FROM `posts` limit {$offset},4";
     $stmt = $con->prepare($sql);
     $stmt -> execute();
     if ($stmt->rowCount()){

@@ -374,3 +374,37 @@
     text-align: center;
     display: inline-block;
  }
+
+ .tags{
+     width: auto;
+     padding: 5px 10px;
+     background: rgba(165, 224, 255, 0.4);
+     text-align: center;
+     display: inline-block;
+     margin-left: 2px;
+ }
+
+ .pagination{
+    width: 100%;
+    padding: 20px 10px;
+    background: #fff;
+    box-shadow: 0 0 3px #ccc;
+}
+
+.paginationNum{
+    width: 32px;
+    height: 32px;
+    line-height: 36px;
+    background: #fff;
+    border: 1px solid #21a1ff;
+    text-align: center;
+    color:#000;
+    border-radius: 100%;
+    margin-left: 1px;
+    display: inline-block;
+}
+
+.paginationNum.active{
+    background: #21a1ff;
+    color: #fff;
+}
