@@ -33,7 +33,7 @@ CREATE TABLE `php_blog`.`comments` (
      `comment_body` TEXT NOT NULL ,
      `comment_status` TINYINT(2) NOT NULL ,
      `comment_email` TEXT NOT NULL ,
-     `comment_create_at` DATE NOT NULL ,
+     `comment_created_at` DATE NOT NULL ,
      `comment_reply` INT(11) NOT NULL ,
       PRIMARY KEY (`comment_id`))
       ENGINE = InnoDB;

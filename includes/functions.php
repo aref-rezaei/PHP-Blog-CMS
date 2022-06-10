@@ -377,3 +377,189 @@ function selectCategoryByPost($category_id){
 
     }
 }
+
+function sendComment(){
+
+    global $con;
+
+    if(isset($_POST['sendComment'])){
+        $comment_created_at = date('y-m-d');
+        $comment_status = 0;
+        $comment_reply = 0;
+        
+        $sql = 'INSERT INTO `comments`(`comment_post_id`,`comment_author`,`comment_body`,`comment_status`,`comment_email`,`comment_created_at`,`comment_reply`) values (:comment_post_id, :comment_author, :comment_body, :comment_status, :comment_email, :comment_created_at, :comment_reply)';
+        $stmt = $con->prepare($sql);
+        $stmt ->bindParam(':comment_post_id',intval($_GET['post_id']));
+        $stmt ->bindParam(':comment_author',$_POST['comment_author']);
+        $stmt ->bindParam(':comment_body',$_POST['comment_body']);
+        $stmt ->bindParam(':comment_status',$comment_status);
+        $stmt ->bindParam(':comment_email',$_POST['comment_email']);
+        $stmt ->bindParam(':comment_created_at',$comment_created_at);
+        $stmt ->bindParam(':comment_reply',$comment_reply);
+      
+        $stmt->execute();
+
+        if($stmt->rowCount()){
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+}
+
+function selectAllComment(){
+    
+    global $con;
+
+    $sql = "SELECT * FROM `comments`";
+    $stmt = $con->prepare($sql);
+    $stmt -> execute();
+    if($stmt -> rowCount()){
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } else {
+        return false;
+    }
+}
+
+function getPostTitle($post_id){
+
+    global $con;
+    
+    $sql = "SELECT `post_title` FROM `posts` WHERE `post_id`= ? ";
+    $stmt = $con->prepare($sql);
+    $stmt -> bindvalue(1,$post_id);
+    $stmt ->execute();
+    $result = $stmt->fetch(PDO::FETCH_OBJ);
+    return $result->post_title;
+}
+
+
+function commentConfirm($comment_id){
+    
+    global $con;
+    
+    $sql = "UPDATE `comments` SET `comment_status`= ? WHERE comment_id = ?";
+    $stmt = $con->prepare($sql);
+    $stmt -> bindValue(1,1);
+    $stmt -> bindValue(2,$comment_id);
+    $stmt -> execute();
+    if($stmt -> rowCount()){
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+function commentReject($comment_id){
+
+    global $con;
+
+    $sql = "UPDATE `comments` SET `comment_status`= ? WHERE comment_id = ?";
+    $stmt = $con->prepare($sql);
+    $stmt -> bindValue(1,0);
+    $stmt -> bindValue(2,$comment_id);
+    $stmt -> execute();
+    if($stmt -> rowCount()){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function selectComment($comment_id){
+
+    global $con;
+
+    if(isset($comment_id)){
+
+        $sql = "SELECT * FROM `comments` WHERE `comment_id`=?";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue(1,$comment_id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+}
+
+function sendReplyComment($comment_id,$comment_post_id){
+
+    global $con;
+
+    if(isset($_POST['sendReplyComment'])){
+        $comment_created_at = date('y-m-d');
+        $comment_author = 'مدیر سایت';
+        $comment_email = 'admin@admin.com';
+        $comment_status = 1;
+        $comment_reply = $comment_id;
+        
+        $sql = 'INSERT INTO `comments`(`comment_post_id`,`comment_author`,`comment_body`,`comment_status`,`comment_email`,`comment_created_at`,`comment_reply`) values (:comment_post_id, :comment_author, :comment_body, :comment_status, :comment_email, :comment_created_at, :comment_reply)';
+        $stmt = $con->prepare($sql);
+        $stmt ->bindParam(':comment_post_id',$comment_post_id);
+        $stmt ->bindParam(':comment_author',$comment_author);
+        $stmt ->bindParam(':comment_body',$_POST['comment_body']);
+        $stmt ->bindParam(':comment_status',$comment_status);
+        $stmt ->bindParam(':comment_email',$comment_email);
+        $stmt ->bindParam(':comment_created_at',$comment_created_at);
+        $stmt ->bindParam(':comment_reply',$comment_reply);
+      
+        $stmt->execute();
+
+        if($stmt->rowCount()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+function deleteComment($comment_id){
+
+    global $con;
+
+    $sql = "DELETE FROM `comments` WHERE `comment_id`=?";
+    $stmt = $con->prepare($sql);
+    $stmt -> bindValue(1,$comment_id);
+    $stmt -> execute();
+    
+    if($stmt->rowCount()){
+        return $stmt;
+    } else {
+        return false;
+    }
+}
+
+function showUserComments($post_id){
+
+    global $con;
+
+    $sql = "SELECT * FROM `comments` WHERE `comment_status` =? and `comment_post_id`=? and `comment_reply`=?";
+    $stmt = $con->prepare($sql);
+    $stmt->bindValue(1,1);
+    $stmt->bindValue(2,$post_id);
+    $stmt->bindValue(3,0);
+    $stmt->execute();
+
+    if($stmt->rowCount()){
+        return $stmt->fetchAll();
+    } else {
+        return false;
+    }
+}
+
+function showReplyComment($comment_id){
+
+        global $con;
+
+        $sql = "SELECT * FROM `comments` WHERE `comment_reply`=?";
+        $stmt = $con->prepare($sql);
+        $stmt->bindValue(1,$comment_id);
+        $stmt->execute();
+
+        if($stmt->rowCount()){
+            return $stmt->fetchAll();
+        } else {
+            return false;
+        }
+
+}

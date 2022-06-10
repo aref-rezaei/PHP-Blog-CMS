@@ -408,3 +408,80 @@
     background: #21a1ff;
     color: #fff;
 }
+
+.commentFooter {
+    border: 1px solid #ddd;
+    margin: 20px 50px
+}
+
+.divAdminReply {
+    background: #f8f8f8;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.AdminReply {
+    padding: 20px;
+}
+
+.sendComment{
+    width: 70%;
+    height: auto;
+    box-shadow: 0 0 3px #ccc;
+    background: #fff;
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+.commentHeaderr{
+    padding:10px 20px;
+    background: #f8f8f8;
+}
+
+.commentBody{
+    padding: 50px;
+}
+
+.commentFooter{
+    border: 1px solid #ddd;
+    padding: 50px 20px;
+    
+}
+
+.answerComment{
+    padding: 20px;
+
+}
+
+.commentAuthor{
+    float: right;
+    display: inline-block;
+
+}
+
+.commentDate{
+    float: left;
+}
+
+.commentQuestion{
+    margin: 10px 10px;
+    padding: 10px 0;
+}
+
+.answer{
+    color: #fff;
+    padding: 5px 5px;
+    width: auto;
+    background: #1aefe8;
+    text-align: center;
+    display: inline-block;
+}
+
+.status{
+    color: #fff;
+    padding: 5px 5px;
+    width: auto;
+    background: #3eef1a;
+    text-align: center;
+    display: inline-block;
+}

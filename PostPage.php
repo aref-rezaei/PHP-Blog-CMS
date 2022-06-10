@@ -77,10 +77,80 @@
                 </div><!-- end postFooter -->
                 <div class="clear"></div>
             </div><!-- end post -->
+            <div class="clear"></div>
+
+            <?php sendComment();?>
+            <div class="sendComment">
+                <div class="commentHeader">
+                    <h1>ارسال نظر</h1>
+                </div>
+                <div class="commentBody">
+                    <form action="" method="post">
+                        <input type="text" name="comment_author" required class="textbox" placeholder="نام">
+                        <input type="text" name="comment_email" required class="textbox" placeholder="ایمیل">
+                        <textarea class="textbox" name="comment_body" style="height: 150px;" required placeholder="نظر خود را بنویسید"></textarea>
+                        <br>
+                        <input type="submit" name="sendComment" class="btn btn-success" value="ارسال نظر">
+                        <input type="reset" class="btn btn-error" value="انصراف">
+                    </form>
+                </div>
+
+            <div class="commentFooter">
+                <?php 
+                    $showComments = showUserComments($_GET['post_id']);
+                    
+                    if($showComments){
+                        foreach ($showComments as $Comment){
+
+                ?>
+                        <div class="answerComment">
+                            <div class="info">
+                                <span class="commentAuthor">کاربر : <?php echo $Comment['comment_author']?> گفته : </span>
+                                <span class="commentDate"> تاریخ  : <?php echo convertDateToJalali($Comment['comment_created_at'])?> </span>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="">
+                                <p class="commentQuestion">
+                                    <?php echo $Comment['comment_body']?>
+                                </p>
+                            </div>
+
+                            <?php 
+                                    $ReplyComments = showReplyComment($Comment['comment_id']);
+                                    if($ReplyComments){
+                                        foreach($ReplyComments as $ReplyComment){
+                                ?>
+                                        <div class="divAdminReply">
+                                            <div class="info">
+                                                <span class="commentAuthor" style="color: blue">مدیر سایت گفته : </span>
+                                                <span class="commentDate"> تاریخ  : <?php echo convertDateToJalali($ReplyComment['comment_created_at']); ?> </span>
+                                                <div class="clear"></div>
+                                            </div>
+
+                                                <p class="AdminReply">
+                                                <?php echo $ReplyComment['comment_body']; ?>
+                                                </p>
+                                            <?php
+                                     }
+                                  }
+                                ?>
+
+                            </div>
+                        </div>
+                    </div>
+            <?php 
+                      }
+                } else {
+                    echo "<p>کامنتی وجود ندارد</p>";
+                }
+            
+            ?>
+            <div class="clear"></div>
+            </div>          
+        </div>
             <?php } ?>
 
-            <div class="clear"></div>
-        </div>
+
         <div class="clear"></div>
     </div><!-- end body -->
 

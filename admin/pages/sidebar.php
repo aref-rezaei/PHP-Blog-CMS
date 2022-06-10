@@ -17,7 +17,7 @@
 
             <li class="has-sub"><a href="">مدیریت نظرات</a>
                 <ul>
-                    <li><a href="./">مشاهده نظرات</a></li>
+                    <li><a href="Comments.php">مشاهده نظرات</a></li>
                 </ul>
             </li>
 
