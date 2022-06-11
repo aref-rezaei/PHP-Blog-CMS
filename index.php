@@ -12,15 +12,7 @@
 <body>
     <div class="header"><!-- start header -->
         <div class="container"><!-- start container -->
-            <ul class="menu">
-                <?php 
-                    $showCategory = selectAllCategory();
-                    foreach ($showCategory as $value) {
-                        echo "<li><a href='Categories.php?category_id={$value['category_id']}'>{$value['category_title']}</a></li>";
-                    }
-                ?>
-                <li><a href="admin">ورود مدیریت</a></li>
-            </ul>
+        <?php require_once 'Head.php' ?>
             <div class="clear"></div>
         </div><!-- end container -->
 

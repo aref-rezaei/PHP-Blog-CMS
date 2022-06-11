@@ -21,6 +21,8 @@
                 </ul>
             </li>
 
+            <li><a href="Logout.php">خروج</a></li>
+
         </ul>
     </div>
     <div class="clear"></div>

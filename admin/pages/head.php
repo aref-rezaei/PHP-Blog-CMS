@@ -1,4 +1,11 @@
-<?php require_once '../includes/init.php'; ?>
+<?php 
+    require_once '../includes/init.php';
+
+    if(!isset($_SESSION['AdminId'])){
+        header('location:Login.php');
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

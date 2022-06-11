@@ -563,3 +563,28 @@ function showReplyComment($comment_id){
         }
 
 }
+
+function loginCheck(){
+
+    global $con;
+
+    if(isset($_POST['login'])){
+
+        
+        $sql ="SELECT * FROM `admins` WHERE `admin_username` =? AND `admin_password` =?";
+        $stmt = $con ->prepare($sql);
+        $stmt -> bindValue(1,$_POST['admin_username']);
+        $stmt -> bindValue(2,md5($_POST['admin_password']));
+        $stmt -> execute();
+
+        if($stmt->rowCount()){
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            session_start();
+            $_SESSION['AdminId'] = ['admin_id'=>$row['admin_id'],'admin_username' => $row['admin_username']];
+            header('location:index.php');
+        } else {
+            header('location:Login.php?login=error');
+        }
+
+    }
+}
