@@ -63,6 +63,23 @@
                         }?>
                 
             </table>
+
+            <?php 
+                    for($i=1; $i <= $TotalPageNum; $i++){
+                        if(isset($_GET['page'])){
+                            if($i == $_GET['page']){
+                                echo'<a class="paginationNum active" href="Posts.php?page='.$i.'">'.$i.'</a>';
+                            } else {
+                                echo'<a class="paginationNum" href="Posts.php?page='.$i.'">'.$i.'</a>';
+                            }
+                        }else{
+                            echo'<a class="paginationNum active" href="Posts.php?page=1">1</a>';
+                        }
+
+                    }
+            ?>
+
+
         </div><!-- end content -->
 
 
